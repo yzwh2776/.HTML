@@ -3,3 +3,13 @@ body {
 	color: Gold;
 }
 
+a {
+	color: DarkOrange;
+}
+
+a:visted {
+	color: Navy; 
+}
+
+
+
