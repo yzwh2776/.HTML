@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Introduction to Computer Networking</title>
+	<link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+
+	<h2>Introduction to Network Devices I:</h2>
+	
+	<h3>The Open Systems Interconnection (OSI)</h3>
+		
+	<ul>
+		<li>Layer 7 - Application</li>
+		<li>Layer 6 - Presentation</li>
+		<li>Layer 5 - Session</li>
+		<li>Layer 4 - Transport</li>
+		<li>Layer 3 - Network</li>
+		<li>Layer 2 - Data Link</li>
+		<li>Layer 1 - Physical</li>
+	</ul>
+
+	<p>Most devices function at more than one level of the OSI model, but when determining where they fit into the model, we look at the highest level.</p>
+
+	<h3>Layer 1 Devices</h3>
+
+	<ul>
+		<li>Analog Modem</li>
+
+			<p>Modems take a digital signal from a digital node and convert it to an analog signal (modulating the signal). In return it takes an analog signal and converts to a digital signal (demodulating the signal).</p>
+
+			<p>They were developed to create connection vie that Public Switched Telephone Network (PSTN) using the Plain Old Telephone system (POTS).</p>
+
+			<p>Modems provide for a single connection to a network and are only concerned with the wire, and the wire resides on Layer 1 of the OSI model. The modem doesn't care where the signal comes from, it just does it's job.</p> 
+	
+		<li>Hub</li>
+
+			<p>A hub function as a concentrator/repeater in that it doesn't care where the signal comes from or where it's going. It takes a signal arriving on a port and replicates that signal out all of the other ports.</p>
+	</ul>
+		
+	<p>Layer 1 devides communciate with wires.</p>
+
+	<h3>Layer 2 Devices</h3>
+
+	<ul>
+		<li>Switch</li>
+			
+			<p>A switch utilizes an application-specific integrated circuit (ASIC) chip. The ASIC chip has specific programing that allows the switch to learn when a device is on the network and which ports itis connected to via that devices's layer 2 MAC address.</p>
+
+		<li>Wireless Access Point (WAP)</li>
+
+			<p>A WAP is a specific type of network bridge that connects (bridges) wireless network segments with wired network segments.</p>
+	</ul> 
+	
+	<p>Layer 2 devices only communicate with local network devices</p>
+
+	<h3>Layer 3 devices</h3>
+
+	<ul>
+		<li>Multilayer Switch (MLS)</li>
+
+			<p>An MLS provides normal layer 2 network switching services, but it will also provide layer 3 or higher OSI model services. The most common MLS is a layer 3 switch, which not only utilizes an ASIC chip for switching, but that ASIC chip is also programed to handle routing functions. This allows the device to communicate and pass data to non-local network devices.</p>
+
+		<li>Router</li>
+
+			<p>A router is the most common network device for connecting different networks together utilizing the OSI model's layer 3 logical network information. The router uses software programmin for decision making as compared to the switch's use of an ASIC chip. The router uses this programming to keep track of different networks and what it considers to be the best possible route to reach those networks.</p>
+	</ul>
+
+	<p>Layer 3 devices can communcate with both local and non-local network devices.</p>
+
+	<h2>Introduction to Network Devices II</h2>
+	
+	<h3>Security Devices</h3>
+
+	<ul>
+		<li>Firewall</li>
+
+			<p>A firewall can be placed on routers or hosts (software based) or can be its own device and it functions at multiple layers of the OSI model (2,3,4,7). The firewall blocks packets from entering or leaving the network via <strong>stateless inspection</strong> or via <strong>stateful inspection</strong>.</p>
+
+			<ul>
+				<li>Stateless Inspection</li>
+
+					<p>The firewall will examine every packet against a set of rules. Once the packet matches a rule, the rule is enforced, and the specific action is taken.</p>
+	
+				<li>Stateful Inspection</li>
+
+					<p>The firewall will only examine the state of the connection between networks. Specifically, when a connection is made from an internal network to an external network, the firewall will not examine any packets returning from the external connection. As a general rule, external connections are not allowed to be initiated with the internal network.</p>
+			</ul>
+
+			<p>The firewall is the first line of defense in protecting the internal network from outside threats.</p>
+
+		<li>Intrusion Detection System (IDS)</li>
+
+			<p>An IDS is a passive system designed to identify when a network breach or attack agains the network is occurring. This system is usually designed to inform a network administrator when a breach or attack has occurred through log files, SMS, and/or email. An IDS cannot prevent or stop a breach or attack on its own. The IDS receives a copy of all traffic and evaluates it against a set of standards. The standards it uses may be, <strong>Signature based</strong>, <strong>Anomaly based</strong>, <strong>Policy based</strong>.</p>
+	
+			<ul>
+				<li>Signature Based</li>
+
+					<p>Evaluates network traffic for known malware or against attack signatures.</p>
+
+				<li>Anomaly Based</li>
+
+					<p>Evaluates network traffic for suspicious changes.</p>
+
+				<li>Policy Based</li>
+
+					<p>Evaluates network traffic against a specific declared security policy.</p>
+			</ul>
+
+			<p>The IDS may be depolyed at the host level. 
+
+		<li>Intrusion Prevention System (IPS)</li>
+
+			<p>An IPS is an active system designed to stop a breach or attack from succeeding in damaging the network. They are usually designed to perform an action or set of actions to stop the malicious activity. Like the IDS they will inform a network administrator through the use of log files, SMS, and/or email. All traffic on the network segment flows through the IPS to either enter or leave the segment, and like the IDS, all traffic is evaluated against a set of standards. The best placement for an IPS on a network is between a router (with a firewall) and the destination network segment.</p>
+
+			<p>Some of the ways an IPS is programmed to make an active response to the situation are:</p>
+
+			<ul>
+				<li>Block the offending IP address</li>
+
+				<li>Close down the vulnerable interface</li>
+
+				<li>Terminate the network session</li>
+
+				<li>Redirect the attack</li>
+			</ul>
+
+			<p>IPS are designed to be active and to stop the breach or attack.</p>
+
+		<li>Virtual Private Network (VPN)</li>
+
+			<p>A VPN concentrator will allow for many more secure VPN connections to a network. The concentrator will provide proper tunneling and encryption, depending on the type of VPN connection that is allowed. Outside of internet transactions (which use SSL VPN connections at layer 7) most concentrators will function at the network layer (layer 3) of the OSI model, providing IPsec encryption through a secure tunnel.</p>
+		</ul>
+		
+	<h3>Optimization and Performance Devices</h3>
+
+		<ul>
+			<li>Load Balancer</li>
+
+				<p>A load balancer may also be called a content switch or content filter. A load balancer is a network application that is used to load balance between multiple hosts that contain the same data - spreading out the workload for greater efficiency. They are commonly used to distribute the requests (workload) to a server farm among the various servers, helping to ensure that no single server gets overloaded.</p>
+
+			<li>Proxy Server</li>
+
+				<p>A proxy server is an application that requests resources on behalf of client machines. It is often used to retrieve resources from outside untrusted networks on behalf of the requesting client. It hides and protets the requesting client, can be utilized to filter allowed content, and can increase network performance by caching commonly requested web pages.</p>
+		</ul>
+		
+</body>
+</html>
